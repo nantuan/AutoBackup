@@ -18,5 +18,4 @@ jobs:
         EOF
     - name: Penyalinan
       run: |
-        rclone copy tr: ts:abcd --drive-server-side-across-configs -vvP && rclone copy dr: ds:abcde --drive-server-side-across-configs  -vvP && rclone copy da: db:abc --drive-server-side-across-configs -vvP && rclone copy 3dr: 4dr:abcdefg --drive-server-side-across-configs -vvP && rclone copy 1dr: 2dr:abcdef --drive-server-side-across-configs -vvP && rclone copy 5dr: 6dr:abc1 --drive-server-side-across-configs -vvP && rclone copy dr6666: 6dr:abc1 --drive-server-side-across-configs -vvP
-
+        rclone copy tr: ts:abcd --drive-server-side-across-configs --max-age 24h && rclone copy dr: ds:abcde --drive-server-side-across-configs --max-age 24h && rclone copy da: db:abc --drive-server-side-across-configs --max-age 24h && rclone copy 1dr: 2dr:abcdef --drive-server-side-across-configs --max-age 24h && rclone copy 5dr: 6dr:abc1 --drive-server-side-across-configs --max-age 24h && rclone copy dr6666: 6dr:abc1 --drive-server-side-across-configs --max-age 24h && rclone copy "3dr:backup" "4dr:abcdefg/backup" --drive-server-side-across-configs --max-age 24h
