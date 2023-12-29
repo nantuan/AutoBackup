@@ -18,4 +18,4 @@ jobs:
         EOF
     - name: Penyalinan
       run: |
-        rclone copy "kuy2:backup" "FTP:kclx.eu.org/htdocs/freessh"
+        rclone copy "kuy2:backup" "FTP:kclx.eu.org/htdocs/freessh" --max-age 24h
