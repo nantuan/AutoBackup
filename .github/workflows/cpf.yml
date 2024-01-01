@@ -1,0 +1,21 @@
+name: AutoBackup (cpf)
+on:
+  schedule:
+    - cron: 0 */6 * * *
+  workflow_dispatch:
+jobs:
+  ProsesBackup:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.1.0
+    - name: Menginstall Rclone
+      run: curl https://rclone.org/install.sh | sudo bash
+    - name: Memuat konfigurasi Rclone
+      run: |
+        mkdir -p ~/.config/rclone/
+        cat >  ~/.config/rclone/rclone.conf  << EOF
+        ${{ secrets.cpf }}
+        EOF
+    - name: Penyalinan
+      run: |
+        rclone copy "kuy22:" "CPF:premium.co4.in/htdocs/wp-content/uploads/simple-file-list"
