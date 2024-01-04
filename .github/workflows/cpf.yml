@@ -18,5 +18,5 @@ jobs:
         EOF
     - name: Penyalinan
       run: |
-        rclone sync "kuy22:" "FTP:premium.co4.in/htdocs/wp-content/uploads/simple-file-list" --max-age 24h
+        rclone sync "kuy22:" "CPF:premium.co4.in/htdocs/wp-content/uploads/simple-file-list" --max-age 24h
         
