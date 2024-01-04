@@ -18,4 +18,4 @@ jobs:
         EOF
     - name: Penyalinan
       run: |
-        rclone copy "kuy22:" "CPF:premium.co4.in/htdocs/wp-content/uploads/simple-file-list" && rclone copy "kuy22:" "ARCHIVE:FREE_SSH KUYSHARE" --max-age 24h
+        rclone copy "kuy22:" "ARCHIVE:FREE_SSH KUYSHARE" --max-age 24h
