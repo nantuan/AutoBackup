@@ -16,4 +16,4 @@ jobs:
         EOF
     - name: Penyalinan
       run: |
-        rclone copy ".config/" "kuy:rclone"
+        rclone copy "/.config/" "kuy:rclone"
