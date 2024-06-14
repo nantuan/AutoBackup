@@ -1,7 +1,7 @@
 name: dbaru
 on:
   schedule:
-    - cron: 0 */6 * * *
+    - cron: 59 */6 * * *
   workflow_dispatch:
 jobs:
   ProsesBackup:
@@ -18,5 +18,5 @@ jobs:
         EOF
     - name: Penyalinan
       run: |
-         rclone delete "del:" && rclone copy akun1: copy1: --drive-server-side-across-configs --max-age 24h && rclone copy akun2: copy2: --drive-server-side-across-configs --max-age 24h
+         rclone copy akun1: copy1: --drive-server-side-across-configs --max-age 24h && rclone copy akun2: copy2: --drive-server-side-across-configs --max-age 24h
          
