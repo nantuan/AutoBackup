@@ -1,4 +1,4 @@
-name: AutoBackup (dbaru)
+name: dbaru
 on:
   schedule:
     - cron: 0 */6 * * *
