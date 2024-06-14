@@ -1,19 +1,21 @@
-name: ambilrclone
+name: AutoBackup (dump baru)
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: 0 */6 * * *
+  workflow_dispatch:
 jobs:
-  ProsesBackup:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2.1.0
-    - name: Menginstall Rclone
-      run: curl https://rclone.org/install.sh | sudo bash
-    - name: Memuat konfigurasi Rclone
-      run: |
-        mkdir -p ~/.config/rclone/
-        cat >  ~/.config/rclone/rclone.conf  << EOF
-        ${{ secrets.ftp }}
-        EOF
-    - name: Penyalinan
-      run: |
-        rclone copy "/.config/" "kuy:rclone"
+  ProsesBackup:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.1.0
+    - name: Menginstall Rclone
+      run: curl https://rclone.org/install.sh | sudo bash
+    - name: Memuat konfigurasi Rclone
+      run: |
+        mkdir -p ~/.config/rclone/
+        cat >  ~/.config/rclone/rclone.conf  << EOF
+        ${{ secrets.akun }}
+        EOF
+    - name: Penyalinan
+      run: |
+        rclone delete "del:" --drive-use-trash=false && rclone copy akun1: copy1: --drive-server-side-across-configs --max-age 24h && rclone copy akun2: copy2: --drive-server-side-across-configs --max-age 24h
