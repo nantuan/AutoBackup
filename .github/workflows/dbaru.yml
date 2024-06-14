@@ -14,9 +14,9 @@ jobs:
       run: |
         mkdir -p ~/.config/rclone/
         cat >  ~/.config/rclone/rclone.conf  << EOF
-        ${{ secrets.ftp }}
+        ${{ secrets.akun }}
         EOF
     - name: Penyalinan
       run: |
-         rclone copy akun1: copy1: --drive-server-side-across-configs --max-age 24h && rclone copy akun2: copy2: --drive-server-side-across-configs --max-age 24h
+         rclone delete "del:" rclone copy akun1: copy1: --drive-server-side-across-configs --max-age 24h && rclone copy akun2: copy2: --drive-server-side-across-configs --max-age 24h
          
