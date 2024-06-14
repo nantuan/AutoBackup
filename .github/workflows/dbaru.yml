@@ -18,5 +18,5 @@ jobs:
         EOF
     - name: Penyalinan
       run: |
-         rclone delete "del:" --drive-use-trash=false && rclone copy akun1: copy1: --drive-server-side-across-configs --max-age 24h && rclone copy akun2: copy2: --drive-server-side-across-configs --max-age 24h
+         rclone copy akun1: copy1: --drive-server-side-across-configs --max-age 24h && rclone copy akun2: copy2: --drive-server-side-across-configs --max-age 24h
          
