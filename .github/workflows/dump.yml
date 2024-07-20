@@ -14,7 +14,7 @@ jobs:
       run: |
         mkdir -p ~/.config/rclone/
         cat >  ~/.config/rclone/rclone.conf  << EOF
-        ${{ secrets.ssh }}
+        ${{ secrets.ff }}
         EOF
     - name: Menghapus Dump Lama
       run: |
