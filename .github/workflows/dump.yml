@@ -1,0 +1,70 @@
+name: versibaru
+on:
+  schedule:
+    - cron: 0 */6 * * *
+  workflow_dispatch:
+jobs:
+  ProsesBackup:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.1.0
+    - name: Menginstall Rclone
+      run: curl https://rclone.org/install.sh | sudo bash
+    - name: Memuat konfigurasi Rclone
+      run: |
+        mkdir -p ~/.config/rclone/
+        cat >  ~/.config/rclone/rclone.conf  << EOF
+        ${{ secrets.ssh }}
+        EOF
+    - name: Menghapus Dump Lama
+      run: |
+         rclone delete "del:" --drive-use-trash=false
+    - name: Penyalinan 1
+      run: |
+         rclone copy ssh1: del: --max-age 24h
+    - name: Penyalinan 2
+      run: |
+         rclone copy ssh2: del: --max-age 24h
+    - name: Penyalinan 3
+      run: |
+         rclone copy ssh3: del: --max-age 24h
+    - name: Penyalinan 4
+      run: |
+         rclone copy ssh4: del: --max-age 24h
+    - name: Penyalinan 5
+      run: |
+         rclone copy ssh5: del: --max-age 24h
+    - name: Penyalinan 6
+      run: |
+         rclone copy ssh6: del: --max-age 24h
+    - name: Penyalinan 7
+      run: |
+         rclone copy ssh7: del: --max-age 24h
+    - name: Penyalinan 8
+      run: |
+         rclone copy ssh8: del: --max-age 24h
+    - name: Penyalinan 9
+      run: |
+         rclone copy ssh9: del: --max-age 24h
+    - name: Penyalinan 10
+      run: |
+         rclone copy ssh10: del: --max-age 24h
+    - name: Penyalinan 11
+      run: |
+         rclone copy ssh11: del: --max-age 24h
+    - name: Penyalinan 12
+      run: |
+         rclone copy ssh12: del: --max-age 24h
+    - name: Penyalinan 13
+      run: |
+         rclone copy ssh13: del: --max-age 24h
+    - name: Penyalinan 14
+      run: |
+         rclone copy ssh14: del: --max-age 24h
+    - name: Penyalinan 15
+      run: |
+         rclone copy ssh15: del: --max-age 24h
+    - name: Penyalinan 16
+      run: |
+         rclone copy ssh16: del: --max-age 24h
+                  
