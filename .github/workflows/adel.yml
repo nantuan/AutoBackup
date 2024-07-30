@@ -1,7 +1,7 @@
 name: ADel
 on:
   schedule:
-    - cron: 0 */24 */3 * *
+    - cron: 0 */24 */1 * *
   workflow_dispatch:
 jobs:
   ProsesBackup:
