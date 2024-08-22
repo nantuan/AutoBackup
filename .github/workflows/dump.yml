@@ -31,9 +31,6 @@ jobs:
     - name: Penyalinan 4
       run: |
          rclone copy ssh4: del: --max-age 24h
-    - name: Penyalinan 5
-      run: |
-         rclone copy ssh5: del: --max-age 24h
     - name: Penyalinan 6
       run: |
          rclone copy ssh6: del: --max-age 24h
